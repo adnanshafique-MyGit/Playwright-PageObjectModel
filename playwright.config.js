@@ -21,7 +21,7 @@ export default defineConfig({
     timeout: 5000
   },
 
-  testDir: './tests',
+  testDir: './tests/demo',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -45,7 +45,7 @@ export default defineConfig({
     // video: 'on',
     launchOptions:{
        slowMo:1000
-    },
+    }
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     // trace: 'on-first-retry',
@@ -67,7 +67,9 @@ export default defineConfig({
     {
       name: 'webkit',
       use: { ...devices['Desktop Safari'] },
-    },
+    }
+
+  
 
     /*{
       name: 'login',
@@ -102,7 +104,10 @@ export default defineConfig({
     //   name: 'Google Chrome',
     //   use: { ...devices['Desktop Chrome'], channel: 'chrome' },
     // },
-  ],
+  ]
+
+  
+  
 
   /* Run your local dev server before starting the tests */
   // webServer: {
