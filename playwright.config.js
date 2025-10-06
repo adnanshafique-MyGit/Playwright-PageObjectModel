@@ -5,15 +5,17 @@ import { defineConfig, devices } from '@playwright/test';
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
  */
-// import dotenv from 'dotenv';
-// import path from 'path';
-// dotenv.config({ path: path.resolve(__dirname, '.env') });
+import dotenv from 'dotenv';
+import path from 'path';
+dotenv.config({ path: path.resolve(__dirname, '.env') });
 
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
+
 export default defineConfig({
 
+  //baseURL: process.env.BASE_URL;
   timeout:  30 * 1000,
 
   expect: {
@@ -21,7 +23,7 @@ export default defineConfig({
     timeout: 5000
   },
 
-  testDir: './tests/demo',
+  testDir: './tests',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -43,6 +45,9 @@ export default defineConfig({
     // headless: false,
 
     // video: 'on',
+    //baseURL: process.env.BASE_URL,
+    //userName: process.env.USER_NAME,
+    //userPassword: process.env.PASSWORD,
     launchOptions:{
        slowMo:1000
     }

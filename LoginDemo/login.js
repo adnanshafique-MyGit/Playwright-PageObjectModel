@@ -1,3 +1,4 @@
+const { expect } = require("@playwright/test")
 
 exports.LoginPage = class LoginPage {
     
@@ -9,8 +10,8 @@ exports.LoginPage = class LoginPage {
         this.login_button = page.locator('//button[@type="submit"]')
     }
 
-    async openWebsite() {
-        await this.page.goto('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    async openWebsite(burl) {
+        await this.page.goto(burl)
     }
 
 
@@ -18,6 +19,7 @@ exports.LoginPage = class LoginPage {
         await this.username_textbox.fill(uname)
         await this.password_textbox.fill(pass)
         await this.login_button.click()
+        await expect(this.page).toHaveURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index')
 
     }
 
